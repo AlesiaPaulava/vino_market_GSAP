@@ -3,22 +3,44 @@
   &__bg
     width: 100%
     height: 100%
-    object-fit: cover
+    object-fit: cover   
 
 .promo
   margin-top: -90px
+  @include sm
+    margin-top: -68px
+  @include xxs
+    margin-top: -29px
   &__wrap
     display: flex
     align-items: stretch
     justify-content: flex-end
+    @include sm
+      max-width: 444px
+      margin-left: auto
+      flex-direction: column
+    @include xxs
+      min-width: 100%
   &__info
     margin-right: 30px
     flex: 0 0 380px
+    @include sm
+      margin-right: 0
+      margin-bottom: 100px
+    @include xxs
+      margin-bottom: 70px
   &__img
     flex: 0 1 482px
     img
       height: 100%
       object-fit: cover
+    @include sm
+      height: 576px
+      flex: 0 1 auto
+      img
+        width: 100%
+    @include xxs
+      height: 360px
 
 .features
   &__wrap
@@ -26,9 +48,23 @@
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 132px
+    @include md
+      gap:104px
+    @include sm
+      padding-left: 70px
+      padding-right: 70px
+      grid-template-columns: 1fr
+      gap: 100px
   &__item
+    @include sm
+      width: 400px
+    @include xs
+      width: 278px
     &_reverse
       padding-top: 60px
+      @include sm
+      margin-left: auto
+      padding-top: 0
   &__name
     position: relative
     margin-left: -100px
@@ -38,6 +74,8 @@
     font-size: 70px
     line-height: 100%
     text-align: center
+    @include sm
+      margin-left: -70px
     &_bottom
       margin-top: 0
       margin-bottom: -40px
@@ -45,3 +83,76 @@
     img
       width: 100%
       object-fit: cover
+
+.tradition
+  padding-bottom: 345px
+  background: $main-color
+  &__wrap
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+  &__left
+    margin-right: 132px
+    position: relative
+    padding-left: calc((100% - 1200px) / 2) //иммитация контейнера для того, чтобы отодвинуть текст
+                                          //но обязательно этот padding-left фиксируем на том брейк-поинте как контейнер и так же как в мобилке контейнер (1240px, padding: 0 20px)  
+    display: flex
+    flex-direction: column
+    @include md
+      padding-left: 20px
+      margin-right: 70px
+    @include xxs
+      padding-left: 15px
+  &__text
+    margin-left: auto
+  &__left-content
+    width: 688px
+    @include md
+      width: 628px
+  &__right
+    @media(min-width: 1920px)
+      margin-right: calc((100% - 1900px) / 2)
+  &__bottom
+    @media(min-width: 1920px)
+      width: 80% 
+      height: 640px
+    position: absolute                               
+    width: 100%
+    height: 540px
+    right: 0
+    bottom: -120px
+    transform: translateY(100%)
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.country
+  @media(min-width: 1920px)
+    padding-top: 610px
+  padding-top: 510px
+  &__title
+    position: relative
+  &__wrap
+    display: flex
+  &__left
+    margin-right: 30px
+    display: flex
+    flex-direction: column
+    flex: 0 0 688px
+    @include md
+      flex: 0 0 628px
+  &__img
+    margin-top: -200px
+    margin-left: auto
+    width: 55%
+  &__right
+    padding-top: 360px
+    align-self: flex-end
+
+.story
+  background: $main-color
+
+.swiper-slide
+  img
+    width: 100%
